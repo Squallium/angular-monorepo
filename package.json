@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "lerna run start --scope=demoapp --stream",
+    "build": "lerna run build --scope=demoapp,shared --stream",
+    "buildlib": "lerna run build --scope=shared --stream",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "lerna run test --scope=demoapp,shared --stream"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.1",
     "@angular/cli": "~14.2.1",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
@@ -33,9 +35,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "lerna": "^5.4.3",
+    "ng-packagr": "^14.2.0",
     "typescript": "~4.7.2"
   },
   "workspaces": [
-    "packages/*"
+    "projects/*"
   ]
 }
